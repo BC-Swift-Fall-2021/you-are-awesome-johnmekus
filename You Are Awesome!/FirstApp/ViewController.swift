@@ -22,8 +22,26 @@ class ViewController: UIViewController {
 
     @IBAction func andyChapmanButtonPressed(_ sender: UIButton) {
         //print("It was pressed.")
-        awesomeLabel.text = "You are awesome!"
-        imageView.image = UIImage(named: "image6")
+        
+        let awesomeMessage = "You are awesome!"
+        let greatMessage = "You are great!"
+        let daBombMessage = "You are da bomb!"
+        
+        if awesomeLabel.text == awesomeMessage
+        {
+            awesomeLabel.text = greatMessage
+            imageView.image = UIImage(named: "image1")
+        }
+        else if awesomeLabel.text == greatMessage
+        {
+            awesomeLabel.text = daBombMessage
+            imageView.image = UIImage(named: "image6")
+        }
+        else
+        {
+            awesomeLabel.text = awesomeMessage
+            imageView.image = UIImage(named: "image4")
+        }
     }
 }
 
