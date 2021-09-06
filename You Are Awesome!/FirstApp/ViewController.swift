@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        awesomeLabel.text = ""
         // Do any additional setup after loading the view.
         
         //print("viewDidLoad has executed!")
