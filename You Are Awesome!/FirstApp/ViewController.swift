@@ -11,8 +11,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var awesomeLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var imageNumber = 0
-    var messageNumber = 0
+    var imageNumber = -1
+    var messageNumber = -1
     let totalNumberOfImages = 9
     
     override func viewDidLoad() {
@@ -30,29 +30,22 @@ class ViewController: UIViewController {
                         "You are the best!",
                         "You got it!",
                         "Woah!"]
-        awesomeLabel.text = messages[Int.random(in: 0...messages.count-1)]
-        imageView.image = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
-
         
-        //        let awesomeMessage = "You are awesome!"
-        //        let greatMessage = "You are great!"
-        //        let daBombMessage = "You are da bomb!"
-        //
-        //        if awesomeLabel.text == awesomeMessage
-        //        {
-        //            awesomeLabel.text = greatMessage
-        //            imageView.image = UIImage(named: "image1")
-        //        }
-        //        else if awesomeLabel.text == greatMessage
-        //        {
-        //            awesomeLabel.text = daBombMessage
-        //            imageView.image = UIImage(named: "image6")
-        //        }
-        //        else
-        //        {
-        //            awesomeLabel.text = awesomeMessage
-        //            imageView.image = UIImage(named: "image4")
-        //        }
+        var newMessageNumber: Int
+        repeat
+        {
+            newMessageNumber = Int.random(in: 0...messages.count-1)
+        } while messageNumber == newMessageNumber
+        messageNumber = newMessageNumber
+        awesomeLabel.text = messages[messageNumber]
+        
+        var newImageNumber: Int
+        repeat
+        {
+            newImageNumber = Int.random(in: 0...totalNumberOfImages)
+        } while imageNumber == newImageNumber
+        imageNumber = newImageNumber
+        imageView.image = UIImage(named: "image\(imageNumber)")
     }
 }
 
